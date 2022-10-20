@@ -25,7 +25,6 @@ return [
 			'baseUrl'=>'/proj/letsDance/api',
 			'enableCookieValidation' => false,
 			'enableCsrfValidation' => false,
-			//'cookieValidationKey' => 'qlkwejq9018237jw*!(*&(@*!',
 			'parsers' => [
 				'application/json' => 'yii\web\JsonParser',
 			],
