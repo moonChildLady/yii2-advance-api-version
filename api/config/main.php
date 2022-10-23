@@ -29,6 +29,7 @@ return [
 				'application/json' => 'yii\web\JsonParser',
 			],
         ],
+		
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => false,
@@ -44,16 +45,55 @@ return [
             ],
         ],
         'urlManager' => [
+			'class'=>'yii\web\UrlManager',
             'enablePrettyUrl' => true,
             'enableStrictParsing' => false,
             'showScriptName' => false,
 			//'baseUrl'=>'@app/modules/v1',
 			'baseUrl'=>'/proj/letsDance/api',
             'rules' => [
-				['class' => 'yii\rest\UrlRule', 'controller' => 'user'],
-				['class' => 'yii\rest\UrlRule', 'controller' => 'record'],
+				['class' => 'yii\rest\UrlRule', 'controller' => 'v1/user','pluralize' => false,
+					'tokens' => [
+                        '{id}' => '<id:\\w+>',
+						//'{getAll}'=>'<getAll:\\w+>'
+                    ],],
+
+				[
+					'class' => 'yii\rest\UrlRule', 
+					'controller' => ['v1/record'=>'v1/record'],
+					//'prefix' => 'record/<id:\\w+>',
+					'pluralize' => false,
+					
+					//'patterns' => [
+					//	'GET GetAll'=>'GetAll',
+					//	'OPTIONS GetAll' => 'options',
+					//],
+					//'tokens' => [
+					//	//'GetAll'=>'record/GetAll',
+					//	//'{action}' => '<action:\\w+>',
+                    //    '{id}' => '<id:\\w+>'
+					//	//'{action}' => '<action:\\w+>',
+					//	//'{action}' => '<action:[a-zA-Z0-9\\-]+>',
+					//	
+                    //],
+					'extraPatterns' => [
+						//'POST record/get-all'=>'v1/record/get-all',
+						//'OPTIONS <action:\\w+>' => 'options',
+						//'GET,HEAD getAll'=>'getall',
+						//'OPTIONS' => 'options',
+						//'OPTIONS getAll'=>'options',
+						
+						//'OPTIONS' => 'options',
+						//'GET GetAll' => 'GetAll', 
+						//'OPTIONS <action:\w+>' => 'options',
+					],
+					//'except' => ['index', 'create', 'view', 'update', 'delete'],
+				],
+				//'POST record/GetAll'=>'record/GetAll',
+				//'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+				//'v1/record/<action:\w+>'=>'v1/record/<action>',
 			],        
-        ]
+        ],
     ],
     'params' => $params,
 ];

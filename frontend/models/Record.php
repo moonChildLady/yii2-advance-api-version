@@ -29,10 +29,10 @@ class Record extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['user', 'video', 'image'], 'required'],
+            [['user', 'video', 'image','title','description'], 'required'],
             [['user'], 'integer'],
             [['video', 'image'], 'string'],
-            [['createdDate'], 'safe'],
+            [['createdDate','status'], 'safe'],
         ];
     }
 
