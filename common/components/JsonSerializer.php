@@ -13,9 +13,11 @@ class JsonSerializer extends \yii\rest\Serializer
         if (!is_array($output)) return $output;
 
         return [
-			'code'=>'1',
-            'message' => 'Success',
-            'result' =>  $output
+			'response'=>1,
+            //'message' => 'Success',
+            'results'=>$output,
+			'count'=>count($output)
         ] ;
+		//return $output;
     }
 }

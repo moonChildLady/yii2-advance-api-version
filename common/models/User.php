@@ -76,7 +76,7 @@ class User extends ActiveRecord implements IdentityInterface
 		$fields = parent::fields();
 	
 		// remove fields that contain sensitive information
-		unset($fields['auth_key'], $fields['password_hash'], $fields['password_reset_token']);
+		unset($fields['verification_token'], $fields['password_hash'], $fields['password_reset_token']);
 	
 		return $fields;
 	}

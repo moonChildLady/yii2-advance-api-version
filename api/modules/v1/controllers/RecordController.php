@@ -10,6 +10,7 @@ use yii\web\ForbiddenHttpException;
 use frontend\models\Record;
 use yii\data\ActiveDataProvider;
 use yii\filters\auth\HttpBearerAuth;
+use \yii\web\UploadedFile;
 #use yii\helpers\ArrayHelper;
 #use yii\web\BadRequestHttpException;
 
@@ -19,7 +20,7 @@ class RecordController extends ActiveController
 	public $serializer = [
         //'class' => 'yii\rest\Serializer',
         'class' => 'common\components\JsonSerializer',
-        'collectionEnvelope' => 'items',
+        //'collectionEnvelope' => 'items',
     ];
 	
 	public function init()
@@ -32,7 +33,9 @@ class RecordController extends ActiveController
         $behaviors = parent::behaviors();
         $behaviors['authenticator'] = [
             'class' => HttpBearerAuth::className(),  
-        ]; 
+			'except'=>['index','view','get-all'],
+        ];
+		//$behaviors['authenticator']['except'] = ['index'];		
         return $behaviors;
     }
 	//public function behaviors()
@@ -66,7 +69,10 @@ class RecordController extends ActiveController
 		//$verbs['index'][] = 'OPTIONS';
 		//$verbs['GetAll'] = ['OPTIONS'];
 		$verbs = [
-			'get-all'=>['POST'],
+			'get-all'=>['GET'],
+			'is-author'=>['GET'],
+			'create'=>['POST'],
+			'update'=>['POST'],
 		];
 		return $verbs;
     }
@@ -121,11 +127,107 @@ class RecordController extends ActiveController
 	//
     //return $behaviors;
 	//}
+	
+	public function actions()
+    {
+        $actions = parent::actions();
+        unset($actions['create']);
+        unset($actions['update']);
+        return $actions;
+    }
+
+    public function actionCreate(){
+        // implement here your code
+		$model = new Record();
+		$request = \Yii::$app->request;
+		$user = \Yii::$app->user->identity;
+		$title = $request->post("title");
+		$body = $request->post("body");
+		$uploadImg = UploadedFile::getInstanceByName('image');
+		if($uploadImg){
+			$filename = \Yii::$app->security->generateRandomString(22) . time();
+            $extension = $uploadImg->extension;
+			$path = \Yii::getAlias('@frontend') .'/web/upload/';
+			//$uploadImg->path = $path;
+			
+			if($uploadImg->saveAs($path . $filename . "." . $extension)){
+            //return true;
+			$model->image = $filename.".".$extension;
+        }else{
+            return $uploadImg->getErrors();
+        }
+			}
+		$uploadVideo = UploadedFile::getInstanceByName('video');
+		if($uploadVideo){
+			$filename = \Yii::$app->security->generateRandomString(21) . time();
+            $extension = $uploadImg->extension;
+			$path = \Yii::getAlias('@frontend') .'/web/upload/';
+			//$uploadImg->path = $path;
+			
+			if($uploadVideo->saveAs($path . $filename . "." . $extension)){
+            //return true;
+			$model->video = $filename.".".$extension;
+        }else{
+            return $uploadVideo->getErrors();
+        }
+			}
+			//$password = $request->post("password");
+			$model->title = $title;
+			$model->description = $body;
+			$model->user = $user->id;
+			//$model->response = "created";
+			//$model->slug = $mode->status;
+			$model->dateUpdated = date('Y-m-d H:i:s');
+			$model->save();
+			//return $model;
+			//return array("response"=>"updated", $model);
+			return $this->findModel($model->id);
+		//if ($this->request->isPost) {
+		//	
+		//}
+    }
+	
+	public function actionUpdate($id){
+        // implement here your code
+		$model = $this->findModel($id);
+		//if ($this->request->isPost) {
+			$request = \Yii::$app->request;
+			$title = $request->post("title");
+			$body = $request->post("body");
+			
+			
+			$uploadImg = UploadedFile::getInstanceByName('image');
+			if($uploadImg){
+			$filename = \Yii::$app->security->generateRandomString(22) . time();
+            $extension = $uploadImg->extension;
+			$path = \Yii::getAlias('@frontend') .'/web/upload/';
+			//$uploadImg->path = $path;
+			
+			if($uploadImg->saveAs($path . $filename . "." . $extension)){
+            //return true;
+			$model->image = $filename.".".$extension;
+        }else{
+            return $uploadImg->getErrors();
+        }
+			}
+			//$password = $request->post("password");
+			$model->title = $title;
+			$model->description = $body;
+			
+			$model->save();
+			//return $model;
+			//return array("response"=>"updated", $model);
+			return $model;
+		//}
+    }
+	
 	public function actionGetAll(){
 		$user = \Yii::$app->user->identity;
+		//$output = new \yii\db\Query();
 		$output = Record::find()
-        ->where(['status'=>'ACTIVE'])
-        ->andWhere(['user'=>$user->id]);
+		->joinWith(['userInfo'])
+        ->where(['record.status'=>'ACTIVE']);
+        //->andWhere(['record.id'=>1]);
         //->andWhere(['<=', 'population', $upper])
        
 		return new ActiveDataProvider([
@@ -134,4 +236,26 @@ class RecordController extends ActiveController
 		//return $output;
 		//return $user->id;
 	}
+	
+	public function actionIsAuthor($id){
+		$user = \Yii::$app->user->identity;
+		$output = Record::find()
+        ->where(['status'=>'ACTIVE'])
+        ->andWhere(['user'=>$user->id])
+        ->andWhere(['id'=>$id]);
+        //->andWhere(['<=', 'population', $upper])
+       
+		return new ActiveDataProvider([
+			'query' => $output,
+		]);
+	}
+	
+	protected function findModel($id)
+    {
+        if (($model = Record::findOne(['id' => $id,'user'=>\Yii::$app->user->identity->id])) !== null) {
+            return $model;
+        }
+
+        throw new NotFoundHttpException('The requested page does not exist.');
+    }
 }

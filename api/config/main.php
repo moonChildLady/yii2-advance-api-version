@@ -44,6 +44,14 @@ return [
                 ],
             ],
         ],
+		'urlManagerFrontend' => [
+            'class' => 'yii\web\UrlManager',        // class is required on custom named URL managers!
+            //'hostInfo' => 'https://example.com',    // the full base domain name to use for the links
+            // here is your frontend URL manager config
+			'baseUrl'=>'/proj/letsDance',
+			'enablePrettyUrl' => true,
+            'showScriptName' => false,
+        ],
         'urlManager' => [
 			'class'=>'yii\web\UrlManager',
             'enablePrettyUrl' => true,
@@ -52,11 +60,11 @@ return [
 			//'baseUrl'=>'@app/modules/v1',
 			'baseUrl'=>'/proj/letsDance/api',
             'rules' => [
-				['class' => 'yii\rest\UrlRule', 'controller' => 'v1/user','pluralize' => false,
-					'tokens' => [
-                        '{id}' => '<id:\\w+>',
-						//'{getAll}'=>'<getAll:\\w+>'
-                    ],],
+				['class' => 'yii\rest\UrlRule', 
+				'controller' => ['v1/user'=>'v1/user'],
+				'pluralize' => false,
+					
+				],
 
 				[
 					'class' => 'yii\rest\UrlRule', 
@@ -68,14 +76,15 @@ return [
 					//	'GET GetAll'=>'GetAll',
 					//	'OPTIONS GetAll' => 'options',
 					//],
-					//'tokens' => [
-					//	//'GetAll'=>'record/GetAll',
-					//	//'{action}' => '<action:\\w+>',
-                    //    '{id}' => '<id:\\w+>'
-					//	//'{action}' => '<action:\\w+>',
-					//	//'{action}' => '<action:[a-zA-Z0-9\\-]+>',
-					//	
-                    //],
+					'tokens' => [
+						//'GetAll'=>'record/GetAll',
+						//'{action}' => '<action:\\w+>',
+                        //'{id}' => '<id:\\d+>'
+                        '{id}' => '<id:\\d[\\d,]*>'
+						//'{action}' => '<action:\\w+>',
+						//'{action}' => '<action:[a-zA-Z0-9\\-]+>',
+						
+                    ],
 					'extraPatterns' => [
 						//'POST record/get-all'=>'v1/record/get-all',
 						//'OPTIONS <action:\\w+>' => 'options',
@@ -86,12 +95,16 @@ return [
 						//'OPTIONS' => 'options',
 						//'GET GetAll' => 'GetAll', 
 						//'OPTIONS <action:\w+>' => 'options',
+						'GET is-author/{id}' => 'is-author',
+						'POST update/{id}' => 'update',
 					],
+					//
 					//'except' => ['index', 'create', 'view', 'update', 'delete'],
 				],
+				//'record/<action:\w+>/<id:\d+>'=>'record/<action>',
 				//'POST record/GetAll'=>'record/GetAll',
 				//'<controller:\w+>/<action:\w+>' => '<controller>/<action>',
-				//'v1/record/<action:\w+>'=>'v1/record/<action>',
+				
 			],        
         ],
     ],
