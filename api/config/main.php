@@ -97,6 +97,7 @@ return [
 						//'OPTIONS <action:\w+>' => 'options',
 						'GET is-author/{id}' => 'is-author',
 						'POST update/{id}' => 'update',
+						'DELETE delete/{id}' => 'delete',
 					],
 					//
 					//'except' => ['index', 'create', 'view', 'update', 'delete'],

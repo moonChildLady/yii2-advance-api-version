@@ -73,6 +73,7 @@ class RecordController extends ActiveController
 			'is-author'=>['GET'],
 			'create'=>['POST'],
 			'update'=>['POST'],
+			'delete'=>['DELETE'],
 		];
 		return $verbs;
     }
@@ -133,9 +134,18 @@ class RecordController extends ActiveController
         $actions = parent::actions();
         unset($actions['create']);
         unset($actions['update']);
+		unset($actions['delete']);
         return $actions;
     }
 
+	public function actionDelete($id){
+		$model = $this->findModel($id);
+		if($model){
+			$model->status = "NON-ACTIVE";
+			$model->save();
+		}
+		return $this->findModel($model->id);
+	}
     public function actionCreate(){
         // implement here your code
 		$model = new Record();
@@ -160,7 +170,7 @@ class RecordController extends ActiveController
 		$uploadVideo = UploadedFile::getInstanceByName('video');
 		if($uploadVideo){
 			$filename = \Yii::$app->security->generateRandomString(21) . time();
-            $extension = $uploadImg->extension;
+            $extension = $uploadVideo->extension;
 			$path = \Yii::getAlias('@frontend') .'/web/upload/';
 			//$uploadImg->path = $path;
 			
@@ -208,6 +218,20 @@ class RecordController extends ActiveController
 			$model->image = $filename.".".$extension;
         }else{
             return $uploadImg->getErrors();
+        }
+			}
+			$uploadVideo = UploadedFile::getInstanceByName('video');
+		if($uploadVideo){
+			$filename = \Yii::$app->security->generateRandomString(21) . time();
+            $extension = $uploadVideo->extension;
+			$path = \Yii::getAlias('@frontend') .'/web/upload/';
+			//$uploadImg->path = $path;
+			
+			if($uploadVideo->saveAs($path . $filename . "." . $extension)){
+            //return true;
+			$model->video = $filename.".".$extension;
+        }else{
+            return $uploadVideo->getErrors();
         }
 			}
 			//$password = $request->post("password");

@@ -102,8 +102,12 @@ class Record extends \yii\db\ActiveRecord
 	}
 	
 	public function getVideoURL(){
+		if($this->video==""){
+			return "0";
+		}else{
 		$url = \Yii::$app->urlManagerFrontend->createAbsoluteUrl("/").'upload/';
 		return $url.$this->video;
+		}
 	}
 	
 	public function getSlug(){
