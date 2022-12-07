@@ -29,6 +29,7 @@ class User extends ActiveRecord implements IdentityInterface
     const STATUS_INACTIVE = 9;
     const STATUS_ACTIVE = 10;
 
+	public $response = 1;
 
     /**
      * {@inheritdoc}
@@ -54,7 +55,7 @@ class User extends ActiveRecord implements IdentityInterface
     public function rules()
     {
         return [
-            ['status', 'default', 'value' => self::STATUS_INACTIVE],
+            ['status', 'default', 'value' => self::STATUS_ACTIVE],
             ['status', 'in', 'range' => [self::STATUS_ACTIVE, self::STATUS_INACTIVE, self::STATUS_DELETED]],
         ];
     }
@@ -77,9 +78,14 @@ class User extends ActiveRecord implements IdentityInterface
 	
 		// remove fields that contain sensitive information
 		unset($fields['verification_token'], $fields['password_hash'], $fields['password_reset_token']);
-	
+		$fields['pk'] = 'id';
+		$fields['response'] = 'response';
+		$fields['token'] = 'auth_key';
+		//$fields['displayname'] = 'displayname';
 		return $fields;
 	}
+	
+	
 
     /**
      * {@inheritdoc}

@@ -262,16 +262,25 @@ class RecordController extends ActiveController
 	}
 	
 	public function actionIsAuthor($id){
-		$user = \Yii::$app->user->identity;
-		$output = Record::find()
-        ->where(['status'=>'ACTIVE'])
-        ->andWhere(['user'=>$user->id])
-        ->andWhere(['id'=>$id]);
-        //->andWhere(['<=', 'population', $upper])
-       
-		return new ActiveDataProvider([
-			'query' => $output,
-		]);
+		//$user = \Yii::$app->user->identity;
+		//
+		//$output = Record::find()
+        //->where(['status'=>'ACTIVE'])
+        //->andWhere(['user'=>$user->id])
+        //->andWhere(['id'=>$id]);
+        ////->andWhere(['<=', 'population', $upper])
+		//
+		//return new ActiveDataProvider([
+		//	'query' => $output,
+		//]);
+		$model = Record::findOne(['id' => $id,'user'=>\Yii::$app->user->identity->id]);
+		if(!$model){
+			//$model = new Record;
+			//$model->response = 0;
+			return array("response"=>0);
+		}
+		$model->response = 1;
+		return $model;
 	}
 	
 	protected function findModel($id)

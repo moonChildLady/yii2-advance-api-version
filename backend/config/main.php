@@ -10,8 +10,15 @@ return [
     'id' => 'app-backend',
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
-    'bootstrap' => ['log'],
-    'modules' => [],
+    'bootstrap' => ['log','debug'],
+	'name'=>'Lets Dance',
+	'aliases'=>array(
+        'frontent_web_upload'=>'./upload/',
+    ),
+    'modules' => ['admin' => [
+            'class' => 'mdm\admin\Module',
+            
+        ]],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
@@ -38,6 +45,17 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+		 'authManager' => [
+            'class' => 'yii\rbac\DbManager', // or use 'yii\rbac\DbManager'
+        ],
+		'urlManagerFrontend' => [
+            'class' => 'yii\web\UrlManager',        // class is required on custom named URL managers!
+            //'hostInfo' => 'https://example.com',    // the full base domain name to use for the links
+            // here is your frontend URL manager config
+			'baseUrl'=>'/proj/letsDance',
+			'enablePrettyUrl' => true,
+            'showScriptName' => false,
+        ],
 		'urlManager' => [
 			'baseUrl' => '/proj/letsDance/backend',
             'enablePrettyUrl' => true,
@@ -56,6 +74,13 @@ return [
             ],
         ],
         */
+    ],
+	'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            'site/*',
+            'admin/*', // add or remove allowed actions to this list
+        ]
     ],
     'params' => $params,
 ];

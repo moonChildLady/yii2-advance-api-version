@@ -4,7 +4,7 @@ RewriteBase /proj/letsDance
 RewriteRule ^(frontend|backend|api)/web/ - [L]
 
 # Handle the case of backend, skip ([S=1]) the following rule, if current matched
-RewriteRule ^backend(/(.*))?$ backend/web/$2 [S=1]
+RewriteRule ^backend(/(.*))?$ backend/web/$2 [L,PT]
 RewriteRule ^api(/(.*))?$ api/web/$2 [S=1]
 #RewriteRule ^(.*)$ api/web/$0 [L,PT]
 

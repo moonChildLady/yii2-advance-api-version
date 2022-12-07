@@ -17,7 +17,7 @@ class Record extends \yii\db\ActiveRecord
 {
 	
 	public $mediaUpload;
-	//public $response;
+	public $response;
 	//public $slug;
     /**
      * {@inheritdoc}
@@ -114,9 +114,9 @@ class Record extends \yii\db\ActiveRecord
 		return $this->status;
 
 	}
-	public function getResponse(){
-		return "1";
-	}
+	//public function getResponse(){
+	//	return $this->response;
+	//}
 	public function getDisplayname(){
 		return $this->userInfo->display_name;
 	}
