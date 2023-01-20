@@ -33,6 +33,66 @@ Get product category [GET]
 https://demo.hikinginspire.com/proj/supermarket/api/v1/products/get-category/{id}
 ```
 
+Get products [GET]
+```
+https://demo.hikinginspire.com/proj/supermarket/api/v1/products
+```
+
+Get products details [GET]
+```
+https://demo.hikinginspire.com/proj/supermarket/api/v1/products/get-product/{id}
+```
+
+Signup [POST]
+```
+https://demo.hikinginspire.com/proj/supermarket/api/v1/user/signup
+```
+
+Login [POST]
+```
+https://demo.hikinginspire.com/proj/supermarket/api/v1/user/login
+```
+
+Get user detail [GET]
+```
+https://demo.hikinginspire.com/proj/supermarket/api/v1/user/get-user
+```
+
+Get shopping carts [GET]
+```
+https://demo.hikinginspire.com/proj/supermarket/api/v1/carts
+```
+
+Add product to shopping cart [POST]
+```
+https://demo.hikinginspire.com/proj/supermarket/api/v1/carts/add-to-cart
+```
+
+Delete shopping cart product [POST]
+```
+https://demo.hikinginspire.com/proj/supermarket/api/v1/carts/delete-product
+```
+
+Delete all shopping cart product [POST]
+```
+https://demo.hikinginspire.com/proj/supermarket/api/v1/carts/delete-all
+```
+
+Add quantity on the shopping cart [POST]
+```
+https://demo.hikinginspire.com/proj/supermarket/api/v1/carts/add-quantity
+```
+
+Get all comments of the product [POST]
+```
+https://demo.hikinginspire.com/proj/supermarket/api/v1/products/get-comments/{id}
+```
+
+Add comment [POST]
+```
+https://demo.hikinginspire.com/proj/supermarket/api/v1/products/add-comments/{id}
+```
+
 
 DIRECTORY STRUCTURE
 -------------------
