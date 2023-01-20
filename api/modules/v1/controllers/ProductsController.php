@@ -35,14 +35,7 @@ class ProductsController extends ActiveController
     }
 	
 	protected function verbs(){
-        //return [
-        //    'create' => ['POST'],
-        //    'update' => ['PUT', 'PATCH','POST'],
-        //    'delete' => ['DELETE'],
-        //    'view' => ['GET'],
-        //    'index'=>['GET'],
-        //    'GetAll'=>['POST'],
-        //];
+
 		$verbs = parent::verbs();
 		//$verbs['index'][] = 'OPTIONS';
 		//$verbs['GetAll'] = ['OPTIONS'];
@@ -58,65 +51,25 @@ class ProductsController extends ActiveController
     }
 	
 	public function actionGetProduct($id){
-		//$output = Products::find()
-		//		//->joinWith(['userInfo'])
-		//		->where(['id'=>$id])->comments;
-		//		
-		//		//->andWhere(['record.id'=>1]);
-		//		//->andWhere(['<=', 'population', $upper])
-		//
-		//return new ActiveDataProvider([
-		//	'query' => $output,
-		//]);
-		//return Products::comments();
+
 		$model = Products::findAll(['id'=>$id]);
 		return $model;
 	}
 	
 	public function actionGetComments($id){
-		//$output = Products::find()
-		//		//->joinWith(['userInfo'])
-		//		->where(['id'=>$id])->comments;
-		//		
-		//		//->andWhere(['record.id'=>1]);
-		//		//->andWhere(['<=', 'population', $upper])
-		//
-		//return new ActiveDataProvider([
-		//	'query' => $output,
-		//]);
-		//return Products::comments();
+
 		$model = Products::findOne(['id'=>$id])->comments;
 		return $model;
 	}
 	
 	public function actionGetCategory($id){
-		//$output = Products::find()
-		//		//->joinWith(['userInfo'])
-		//		->where(['id'=>$id])->comments;
-		//		
-		//		//->andWhere(['record.id'=>1]);
-		//		//->andWhere(['<=', 'population', $upper])
-		//
-		//return new ActiveDataProvider([
-		//	'query' => $output,
-		//]);
-		//return Products::comments();
+
 		$model = Products::findAll(['category'=>$id]);
 		return $model;
 	}
 	
 	public function actionAddComments($id){
-		//$output = Products::find()
-		//		//->joinWith(['userInfo'])
-		//		->where(['id'=>$id])->comments;
-		//		
-		//		//->andWhere(['record.id'=>1]);
-		//		//->andWhere(['<=', 'population', $upper])
-		//
-		//return new ActiveDataProvider([
-		//	'query' => $output,
-		//]);
-		//return Products::comments();
+
 		$comment = new Comments;
 		$request = \Yii::$app->request;
 		$comment->comment = $request->post("comment");

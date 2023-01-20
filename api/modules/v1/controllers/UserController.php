@@ -38,14 +38,7 @@ class UserController extends ActiveController
 		\Yii::$app->user->enableSession = false;
 	}
 	protected function verbs(){
-        //return [
-        //    'create' => ['POST'],
-        //    'update' => ['PUT', 'PATCH','POST'],
-        //    'delete' => ['DELETE'],
-        //    'view' => ['GET'],
-        //    'index'=>['GET'],
-        //    'GetAll'=>['POST'],
-        //];
+
 		$verbs = parent::verbs();
 		//$verbs['index'][] = 'OPTIONS';
 		//$verbs['GetAll'] = ['OPTIONS'];
@@ -87,33 +80,19 @@ class UserController extends ActiveController
 		$model->password = $request->post("password");
 		
 		$model->display_name = $request->post("name");
-		//$model->signupapi();
-		//$SignupForm['username'] = $username;
-		//$SignupForm['password'] = $password;
-		//$SignupForm['email'] = $email;
+
         if ($model->signupapi()) {
-            //Yii::$app->session->setFlash('success', 'Thank you for registration. Please check your inbox for verification email.');
-            //return $this->goHome();
 			$user = User::findByEmail($request->post("email"));
-			
-		//	$output = User::find()
-        //->where(['status'=>'10'])
-        //->andWhere(['id'=>$user->id]);
-        //->andWhere(['id'=>$id]);
-        //->andWhere(['<=', 'population', $upper])
+
 		$output = User::find()
 				//->joinWith(['userInfo'])
 				->where(['id'=>$user->id]);
-				//->andWhere(['record.id'=>1]);
-				//->andWhere(['<=', 'population', $upper])
+
        
 		return new ActiveDataProvider([
 			'query' => $output,
 		]);
-       //$output->response = 1;
-		/* return new ActiveDataProvider([
-			'query' => $output,
-		]); */
+
         }else{
 			//return $model->errors;
 			$new_array = [];
@@ -151,18 +130,7 @@ class UserController extends ActiveController
                //return array("response"=>0,'error_message'=>"Invalid credentials");
 			   throw new NotFoundHttpException('Invalid credentials');
             }
-		//Yii::$app->getRequest()->getBodyParams()
-		//return $request->post("username");
-        //$model = new LoginForm();
-        //if ($model->load(\Yii::$app->request->post()) && $model->login()) {
-        //    return "1";
-        //}
-		//
-        //$model->password = '';
 
-        //return $this->render('login', [
-        //    'model' => $model,
-        //]);
     }
 	public function actionGetUser(){
 		$user = \Yii::$app->user->identity;
