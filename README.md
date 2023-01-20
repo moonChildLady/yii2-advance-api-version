@@ -2,7 +2,7 @@
     <a href="https://github.com/yiisoft" target="_blank">
         <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
     </a>
-    <h1 align="center">Yii 2 Advanced Project Template</h1>
+    <h1 align="center">Yii 2 Advanced Project [supermarket]</h1>
     <br>
 </p>
 
@@ -21,10 +21,31 @@ Documentation is at [docs/guide/README.md](docs/guide/README.md).
 [![Total Downloads](https://img.shields.io/packagist/dt/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
 [![build](https://github.com/yiisoft/yii2-app-advanced/workflows/build/badge.svg)](https://github.com/yiisoft/yii2-app-advanced/actions?query=workflow%3Abuild)
 
+REST API URL
+-------------------
+
+Get category [GET]
+```
+https://demo.hikinginspire.com/proj/supermarket/api/v1/category
+```
+Get product category [GET]
+```
+https://demo.hikinginspire.com/proj/supermarket/api/v1/products/get-category/{id}
+```
+
+
 DIRECTORY STRUCTURE
 -------------------
 
 ```
+api
+    config/              contains api configurations
+    web/                 contains the entry script and Web resources (upload folder)
+    runtime/             contains files generated during runtime
+    modules/             contains the version of the API
+        v1/
+            controllers/         contains API controller classes and action
+
 common
     config/              contains shared configurations
     mail/                contains view files for e-mails
