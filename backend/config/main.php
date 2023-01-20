@@ -11,16 +11,23 @@ return [
     'basePath' => dirname(__DIR__),
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
-    'modules' => [],
+	'name'=>'supermarket',
+    'modules' => ['admin' => [
+            'class' => 'mdm\admin\Module',
+            
+        ]],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
-			'baseUrl' => '/proj/letsDance/backend',
+			'baseUrl' => '/proj/supermarket/backend',
         ],
         'user' => [
             'identityClass' => 'common\models\User',
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
+        ],
+		 'authManager' => [
+            'class' => 'yii\rbac\DbManager', // or use 'yii\rbac\DbManager'
         ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
@@ -38,8 +45,16 @@ return [
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],
+		'urlManagerFrontend' => [
+            'class' => 'yii\web\UrlManager',        // class is required on custom named URL managers!
+            //'hostInfo' => 'https://example.com',    // the full base domain name to use for the links
+            // here is your frontend URL manager config
+			'baseUrl'=>'/proj/supermarket',
+			'enablePrettyUrl' => true,
+            'showScriptName' => false,
+        ],
 		'urlManager' => [
-			'baseUrl' => '/proj/letsDance/backend',
+			'baseUrl' => '/proj/supermarket/backend',
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
@@ -56,6 +71,13 @@ return [
             ],
         ],
         */
+    ],
+	'as access' => [
+        'class' => 'mdm\admin\components\AccessControl',
+        'allowActions' => [
+            'site/*',
+            'admin/*', // add or remove allowed actions to this list
+        ]
     ],
     'params' => $params,
 ];

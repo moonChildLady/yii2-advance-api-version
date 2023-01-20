@@ -14,7 +14,7 @@ return [
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
-			'baseUrl'=>'/proj/letsDance/',
+			'baseUrl'=>'/proj/supermarket/',
 			//'parsers' => [
 			//	'application/json' => 'yii\web\JsonParser',
 			//],
@@ -45,7 +45,7 @@ return [
 			//'enableStrictParsing' => true,
 			'showScriptName' => false,
 			//'baseUrl'=>'https://demo.hikinginspire.com/proj/letsDance/',
-			'baseUrl'=>'/proj/letsDance/',
+			'baseUrl'=>'/proj/supermarket/',
 			//'rules' => [
 			//	['class' => 'yii\rest\UrlRule', 'controller' => 'user'],
 			//	['class' => 'yii\rest\UrlRule', 'controller' => 'record'],

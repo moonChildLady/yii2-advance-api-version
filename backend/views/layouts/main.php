@@ -9,7 +9,7 @@ use yii\bootstrap5\Breadcrumbs;
 use yii\bootstrap5\Html;
 use yii\bootstrap5\Nav;
 use yii\bootstrap5\NavBar;
-
+use mdm\admin\components\MenuHelper;
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -42,7 +42,7 @@ AppAsset::register($this);
     }     
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav me-auto mb-2 mb-md-0'],
-        'items' => $menuItems,
+        'items' => MenuHelper::getAssignedMenu(Yii::$app->user->id),
     ]);
     if (Yii::$app->user->isGuest) {
         echo Html::tag('div',Html::a('Login',['/site/login'],['class' => ['btn btn-link login text-decoration-none']]),['class' => ['d-flex']]);
