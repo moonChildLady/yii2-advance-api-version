@@ -1,0 +1,636 @@
+{
+    "openapi": "3.0.2",
+    "info": {
+        "title": "REST API of supermarket app",
+        "version": "1.0"
+    },
+    "servers": [
+        {
+            "url": "https://demo.hikinginspire.com/porj/supermarket/v1/api"
+        }
+    ],
+    "paths": {
+        "/signup":{
+            "post":{
+                "summary": "Sign up the account",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user"
+                            },
+                            
+                            "example": {
+                                
+                                "password": "1233xxx222",
+                                "email": "example@email.com",
+                                "display_name":"Peter Chan"
+                                
+                                
+                                
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {"application/json":{
+                            "schema":{
+                                "$ref":"#/components/schemas/user"
+                            }
+                        }}
+                    },
+                    "500": {
+                        "description": "Error occurred cannot create the account."
+                    }
+                }
+            }
+        },
+        "/login":{
+            "post":{
+                "summary": "Login the account",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/user"
+                            },
+                            
+                            "example": {
+                                "username": "staff1",
+                                "password": "1233xxx222"
+                                
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {"application/json":{
+                            "schema":{
+                                "type": "array",
+                                "properties": {
+                                    "token":{
+                                        "type":"string",
+                                        "description": "bearer token"
+                                    }
+                                }
+                            }
+                        }}
+                    },
+                    "500": {
+                        "description": "Error occurred cannot create the account."
+                    }
+                }
+            }
+        },
+        "/category": {
+            "get": {
+                "summary": "Get the category list",
+                "description": "Get the category list",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/category"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/products/get-category/{id}": {
+            
+            "get": {
+                "summary": "Get the products belongs to category",
+                "description": "Get the products belongs to category",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "category's ID",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/products"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/products": {
+            "get": {
+                "summary": "Get the products list",
+                "description": "Get the products list",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/products"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/products/{id}": {
+            "get": {
+                "summary": "Get the products details",
+                "description": "Get the products details",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "product's ID",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/products"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/user/get-user": {
+            
+            "get": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "Get the user details",
+                "description": "Get the user details",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {"application/json":{
+                            "schema":{
+                                "type": "array",
+                                "properties": {
+                                    "email":{
+                                        "type":"string"
+                                        
+                                    },
+                                    "display_name":{
+                                        "type":"string"
+                                        
+                                    },
+                                    "id":{
+                                        "type":"integer"
+                                        
+                                    }
+
+                                }
+                            }
+                        }}
+                    }
+                }
+            }
+        },
+
+        "/carts": {
+            
+            "get": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "Get the user cart details",
+                "description": "Get the user card details",
+                
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/carts"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "add/update product to user cart",
+                "description": "add/update product to user cart",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/carts"
+                            },
+                            "example": {
+                                "user": 1,
+                                "product": 2,
+                                "price": 13.3,
+                                "quantity": 3
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/carts"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "delete": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "delete product on the user cart",
+                "description": "delete product on the user cart",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/carts"
+                            },
+                            "example": {
+                                "id":1
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/carts"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/carts/delete-all": {
+            
+            "get": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "summary": "delete all shopping cart product",
+                "description": "delete all shopping cart product",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/carts"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/products/comments/{id}": {
+            
+            "get": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "product's ID",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    }
+                ],
+                "summary": "get all comments of the product",
+                "description": "get all comments of the product",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/comments"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "description": "product's ID",
+                        "schema": {
+                            "type": "integer"
+                        },
+                        "required": true
+                    }
+                ],
+                "summary": "add comment of the product",
+                "description": "add comment of the product",
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/comments"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        
+        
+       
+    },
+    "security": [],
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "scheme": "bearer",
+                "bearerFormat": "JWT"
+            }
+        },
+        "schemas": {
+            "category": {
+                "required": [
+                    "title",
+                    "id",
+                    "image"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example":1
+                    },
+                    "title": {
+                        "type": "string",
+                        "example": "Pet Food"
+                    },
+                    "image": {
+                        "type": "string",
+                        "example": "12u37jke98ei.jpg",
+                        "description": "Image path"
+                    }
+                }
+            },
+            "products": {
+                "required": [
+                    "title",
+                    "id",
+                    "images",
+                    "price",
+                    "category",
+                    "image"
+                ],
+                "type": "object",
+                "properties": {
+                    "id": {
+                        "type": "string",
+                        "example": 1
+                    },
+                    "title": {
+                        "type": "string",
+                        "example": "Fish"
+                    },
+                    "image": {
+                        "type": "string",
+                        "example": "123iui8913dsa.jpg",
+                        "description": "Image path for the thumnail"
+                    },
+                    "images": {
+                        "type": "string",
+                        "example": "123iui8913dsa.jpg,ahuqwheuqwd,jpg",
+                        "description": "Image path for the product[multiple]"
+                    },
+                    "price": {
+                        "type": "number",
+                        "example": "19.99"
+                    },
+                    "category": {
+                        "$ref": "#/components/schemas/category"
+                    }
+                }
+            },
+            "comments": {
+                "type": "object",
+                "required": [
+                    "comment",
+                    "rate",
+                    "user",
+                    "product"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example":1
+                    },
+                    "rate": {
+                        "type": "integer",
+                        "example":1
+                    },
+                    "comment": {
+                        "type": "string",
+                        "example":"good product"
+                    },
+                    "product": {
+                        "$ref": "#/components/schemas/products"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/user"
+                    }
+                }
+            },
+            "carts": {
+                "type": "object",
+                "required": [
+                    "product",
+                    "id",
+                    "user",
+                    "quantity",
+                    "amount"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example":1
+                    },
+                    "quantity": {
+                        "type": "integer",
+                        "example":1
+                    },
+                    "amount": {
+                        "type": "number",
+                        "example":1
+                    },
+                    "product": {
+                        "$ref": "#/components/schemas/products"
+                    },
+                    "user": {
+                        "$ref": "#/components/schemas/user"
+                    }
+                }
+            },
+            "user": {
+                "type": "object",
+                "required": [
+                    "email",
+                    "username",
+                    "password_hash",
+                    "id",
+                    "status"
+                ],
+                "properties": {
+                    "id": {
+                        "type": "integer"
+                    },
+                    "username": {
+                        "type": "string",
+                        "example": "staff1"
+                    },
+                    "password_hash": {
+                        "type": "string",
+                        "example": "123456xxx111"
+                    },
+                    "email": {
+                        "type": "string",
+                        "example": "example@email.com"
+                    },
+                    "auth_key":{
+                        "type": "string",
+                        "example": "123456xxx111"
+                    },
+                    "created_at":{
+                        "type": "string",
+                        "example": "1670443947",
+                        "description": "timestamp"
+                    },
+                    "updated_at":{
+                        "type": "string",
+                        "example": "1670443947",
+                        "description": "timestamp"
+                    },
+                    "verfication_token":{
+                        "type": "string",
+                        "example": "Er46YM3mlaCCz0ymdauCTpFTQJOKJHzM_1670443947"
+                        
+                    },
+                    "display_name":{
+                        "type": "string",
+                        "example": "Peter Chan"
+                        
+                    },
+                    "status":{
+                        "type": "integer",
+                        "example": "10",
+                        "enum": [ 10, 11],
+                        "description": "10 means active, 11 means non-active"
+                    }
+                }
+            }
+            
+        }
+    }
+}
