@@ -14,13 +14,14 @@
                     url: "restAPI.json", //Location of Open API spec in the repo
                     dom_id: '#swagger-ui',
                     tryItOutEnabled: false,
-                    deepLinking: true,
+                    //deepLinking: true,
+                    supportedSubmitMethods: [],
                     presets: [
                         SwaggerUIBundle.presets.apis,
                         SwaggerUIBundle.SwaggerUIStandalonePreset
                     ],
                     plugins: [
-                        SwaggerUIBundle.plugins.DownloadUrl
+                        //SwaggerUIBundle.plugins.DownloadUrl
                     ],
                 })
                 window.ui = ui
