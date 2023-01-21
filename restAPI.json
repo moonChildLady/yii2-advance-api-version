@@ -6,7 +6,7 @@
     },
     "servers": [
         {
-            "url": "https://demo.hikinginspire.com/porj/supermarket/v1/api"
+            "url": "https://demo.hikinginspire.com/proj/supermarket/v1/api"
         }
     ],
     "paths": {
