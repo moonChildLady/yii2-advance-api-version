@@ -30,6 +30,14 @@ class UserController extends ActiveController
             'class' => HttpBearerAuth::className(),  
 			'except'=>['login','logout','signup'],
         ]; 
+		$behaviors['corsFilter'] = [
+			'class' => '\yii\filters\Cors',
+			'cors' => [
+				'Origin' => ['*'],
+				'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+				'Access-Control-Request-Headers' => ['*'],
+			],
+		];
         return $behaviors;
     }
 	public function init()

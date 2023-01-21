@@ -10,7 +10,7 @@
         }
     ],
     "paths": {
-        "/signup":{
+        "/user/signup":{
             "post":{
                 "summary": "Sign up the account",
                 "requestBody": {
@@ -25,7 +25,7 @@
                                 
                                 "password": "1233xxx222",
                                 "email": "example@email.com",
-                                "display_name":"Peter Chan"
+                                "name":"Peter Chan"
                                 
                                 
                                 
@@ -42,13 +42,13 @@
                             }
                         }}
                     },
-                    "500": {
+                    "404": {
                         "description": "Error occurred cannot create the account."
                     }
                 }
             }
         },
-        "/login":{
+        "/user/login":{
             "post":{
                 "summary": "Login the account",
                 "requestBody": {

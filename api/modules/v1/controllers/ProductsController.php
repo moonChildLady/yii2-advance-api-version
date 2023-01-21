@@ -30,7 +30,15 @@ class ProductsController extends ActiveController
             'class' => HttpBearerAuth::className(),  
 			'except'=>['index','view','get-comments','get-category', 'get-product'],
         ];
-		//$behaviors['authenticator']['except'] = ['index'];		
+		//$behaviors['authenticator']['except'] = ['index'];
+		$behaviors['corsFilter'] = [
+			'class' => '\yii\filters\Cors',
+			'cors' => [
+				'Origin' => ['*'],
+				'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+				'Access-Control-Request-Headers' => ['*'],
+			],
+		];		
         return $behaviors;
     }
 	
