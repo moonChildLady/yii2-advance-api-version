@@ -29876,3 +29876,275 @@ $_SERVER = [
     'REQUEST_TIME_FLOAT' => 1674271344.0017
     'REQUEST_TIME' => 1674271344
 ]
+2023-01-21 03:24:13 [142.181.56.13][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "v1/login". in /home/demo/proj/supermarket/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /home/demo/proj/supermarket/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /home/demo/proj/supermarket/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /home/demo/proj/supermarket/api/web/index.php(18): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /home/demo/proj/supermarket/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/demo/proj/supermarket/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /home/demo/proj/supermarket/api/web/index.php(18): yii\base\Application->run()
+#2 {main}
+2023-01-21 03:24:13 [142.181.56.13][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_HTTPS' => 'on'
+    'REDIRECT_REDIRECT_SSL_TLS_SNI' => 'demo.hikinginspire.com'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_HTTPS' => 'on'
+    'REDIRECT_SSL_TLS_SNI' => 'demo.hikinginspire.com'
+    'REDIRECT_STATUS' => '200'
+    'HTTPS' => 'on'
+    'SSL_TLS_SNI' => 'demo.hikinginspire.com'
+    'HTTP_HOST' => 'demo.hikinginspire.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'content-type'
+    'HTTP_ORIGIN' => 'https://moonchildlady.github.io'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'
+    'HTTP_SEC_FETCH_MODE' => 'cors'
+    'HTTP_SEC_FETCH_SITE' => 'cross-site'
+    'HTTP_SEC_FETCH_DEST' => 'empty'
+    'HTTP_REFERER' => 'https://moonchildlady.github.io/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.18 (Ubuntu) Server at demo.hikinginspire.com Port 443</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Ubuntu)'
+    'SERVER_NAME' => 'demo.hikinginspire.com'
+    'SERVER_ADDR' => '219.77.203.225'
+    'SERVER_PORT' => '443'
+    'REMOTE_ADDR' => '142.181.56.13'
+    'DOCUMENT_ROOT' => '/home/demo'
+    'REQUEST_SCHEME' => 'https'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/demo'
+    'SERVER_ADMIN' => 'info@hikinginspire.com'
+    'SCRIPT_FILENAME' => '/home/demo/proj/supermarket/api/web/index.php'
+    'REMOTE_PORT' => '59653'
+    'REDIRECT_URL' => '/proj/supermarket/api/web/v1/login'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/proj/supermarket/api/v1/login'
+    'SCRIPT_NAME' => '/proj/supermarket/api/web/index.php'
+    'PHP_SELF' => '/proj/supermarket/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1674271453.8415
+    'REQUEST_TIME' => 1674271453
+]
+2023-01-21 03:24:43 [142.181.56.13][-][-][error][yii\web\HttpException:404] yii\base\InvalidRouteException: Unable to resolve the request "v1/login". in /home/demo/proj/supermarket/vendor/yiisoft/yii2/base/Module.php:561
+Stack trace:
+#0 /home/demo/proj/supermarket/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#1 /home/demo/proj/supermarket/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#2 /home/demo/proj/supermarket/api/web/index.php(18): yii\base\Application->run()
+#3 {main}
+
+Next yii\web\NotFoundHttpException: Page not found. in /home/demo/proj/supermarket/vendor/yiisoft/yii2/web/Application.php:115
+Stack trace:
+#0 /home/demo/proj/supermarket/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#1 /home/demo/proj/supermarket/api/web/index.php(18): yii\base\Application->run()
+#2 {main}
+2023-01-21 03:24:42 [142.181.56.13][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_HTTPS' => 'on'
+    'REDIRECT_REDIRECT_SSL_TLS_SNI' => 'demo.hikinginspire.com'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_HTTPS' => 'on'
+    'REDIRECT_SSL_TLS_SNI' => 'demo.hikinginspire.com'
+    'REDIRECT_STATUS' => '200'
+    'HTTPS' => 'on'
+    'SSL_TLS_SNI' => 'demo.hikinginspire.com'
+    'HTTP_HOST' => 'demo.hikinginspire.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'content-type'
+    'HTTP_ORIGIN' => 'https://moonchildlady.github.io'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'
+    'HTTP_SEC_FETCH_MODE' => 'cors'
+    'HTTP_SEC_FETCH_SITE' => 'cross-site'
+    'HTTP_SEC_FETCH_DEST' => 'empty'
+    'HTTP_REFERER' => 'https://moonchildlady.github.io/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.18 (Ubuntu) Server at demo.hikinginspire.com Port 443</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Ubuntu)'
+    'SERVER_NAME' => 'demo.hikinginspire.com'
+    'SERVER_ADDR' => '219.77.203.225'
+    'SERVER_PORT' => '443'
+    'REMOTE_ADDR' => '142.181.56.13'
+    'DOCUMENT_ROOT' => '/home/demo'
+    'REQUEST_SCHEME' => 'https'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/demo'
+    'SERVER_ADMIN' => 'info@hikinginspire.com'
+    'SCRIPT_FILENAME' => '/home/demo/proj/supermarket/api/web/index.php'
+    'REMOTE_PORT' => '59688'
+    'REDIRECT_URL' => '/proj/supermarket/api/web/v1/login'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/proj/supermarket/api/v1/login'
+    'SCRIPT_NAME' => '/proj/supermarket/api/web/index.php'
+    'PHP_SELF' => '/proj/supermarket/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1674271482.9908
+    'REQUEST_TIME' => 1674271482
+]
+2023-01-21 03:25:02 [142.181.56.13][-][-][error][yii\web\HttpException:405] yii\web\MethodNotAllowedHttpException: Method Not Allowed. This URL can only handle the following request methods: POST. in /home/demo/proj/supermarket/vendor/yiisoft/yii2/filters/VerbFilter.php:108
+Stack trace:
+#0 [internal function]: yii\filters\VerbFilter->beforeAction()
+#1 /home/demo/proj/supermarket/vendor/yiisoft/yii2/base/Component.php(633): call_user_func()
+#2 /home/demo/proj/supermarket/vendor/yiisoft/yii2/base/Controller.php(297): yii\base\Component->trigger()
+#3 /home/demo/proj/supermarket/vendor/yiisoft/yii2/web/Controller.php(222): yii\base\Controller->beforeAction()
+#4 /home/demo/proj/supermarket/vendor/yiisoft/yii2/base/Controller.php(176): yii\web\Controller->beforeAction()
+#5 /home/demo/proj/supermarket/vendor/yiisoft/yii2/base/Module.php(552): yii\base\Controller->runAction()
+#6 /home/demo/proj/supermarket/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#7 /home/demo/proj/supermarket/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#8 /home/demo/proj/supermarket/api/web/index.php(18): yii\base\Application->run()
+#9 {main}
+2023-01-21 03:25:02 [142.181.56.13][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_HTTPS' => 'on'
+    'REDIRECT_REDIRECT_SSL_TLS_SNI' => 'demo.hikinginspire.com'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_HTTPS' => 'on'
+    'REDIRECT_SSL_TLS_SNI' => 'demo.hikinginspire.com'
+    'REDIRECT_STATUS' => '200'
+    'HTTPS' => 'on'
+    'SSL_TLS_SNI' => 'demo.hikinginspire.com'
+    'HTTP_HOST' => 'demo.hikinginspire.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'content-type'
+    'HTTP_ORIGIN' => 'https://moonchildlady.github.io'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'
+    'HTTP_SEC_FETCH_MODE' => 'cors'
+    'HTTP_SEC_FETCH_SITE' => 'cross-site'
+    'HTTP_SEC_FETCH_DEST' => 'empty'
+    'HTTP_REFERER' => 'https://moonchildlady.github.io/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.18 (Ubuntu) Server at demo.hikinginspire.com Port 443</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Ubuntu)'
+    'SERVER_NAME' => 'demo.hikinginspire.com'
+    'SERVER_ADDR' => '219.77.203.225'
+    'SERVER_PORT' => '443'
+    'REMOTE_ADDR' => '142.181.56.13'
+    'DOCUMENT_ROOT' => '/home/demo'
+    'REQUEST_SCHEME' => 'https'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/demo'
+    'SERVER_ADMIN' => 'info@hikinginspire.com'
+    'SCRIPT_FILENAME' => '/home/demo/proj/supermarket/api/web/index.php'
+    'REMOTE_PORT' => '59710'
+    'REDIRECT_URL' => '/proj/supermarket/api/web/v1/user/signup'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/proj/supermarket/api/v1/user/signup'
+    'SCRIPT_NAME' => '/proj/supermarket/api/web/index.php'
+    'PHP_SELF' => '/proj/supermarket/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1674271502.3928
+    'REQUEST_TIME' => 1674271502
+]
+2023-01-21 03:27:01 [142.181.56.13][-][-][error][yii\web\HttpException:405] yii\web\MethodNotAllowedHttpException: Method Not Allowed. This URL can only handle the following request methods: POST. in /home/demo/proj/supermarket/vendor/yiisoft/yii2/filters/VerbFilter.php:108
+Stack trace:
+#0 [internal function]: yii\filters\VerbFilter->beforeAction()
+#1 /home/demo/proj/supermarket/vendor/yiisoft/yii2/base/Component.php(633): call_user_func()
+#2 /home/demo/proj/supermarket/vendor/yiisoft/yii2/base/Controller.php(297): yii\base\Component->trigger()
+#3 /home/demo/proj/supermarket/vendor/yiisoft/yii2/web/Controller.php(222): yii\base\Controller->beforeAction()
+#4 /home/demo/proj/supermarket/vendor/yiisoft/yii2/base/Controller.php(176): yii\web\Controller->beforeAction()
+#5 /home/demo/proj/supermarket/vendor/yiisoft/yii2/base/Module.php(552): yii\base\Controller->runAction()
+#6 /home/demo/proj/supermarket/vendor/yiisoft/yii2/web/Application.php(103): yii\base\Module->runAction()
+#7 /home/demo/proj/supermarket/vendor/yiisoft/yii2/base/Application.php(384): yii\web\Application->handleRequest()
+#8 /home/demo/proj/supermarket/api/web/index.php(18): yii\base\Application->run()
+#9 {main}
+2023-01-21 03:27:01 [142.181.56.13][-][-][info][application] $_GET = []
+
+$_POST = []
+
+$_FILES = []
+
+$_COOKIE = []
+
+$_SERVER = [
+    'REDIRECT_REDIRECT_HTTPS' => 'on'
+    'REDIRECT_REDIRECT_SSL_TLS_SNI' => 'demo.hikinginspire.com'
+    'REDIRECT_REDIRECT_STATUS' => '200'
+    'REDIRECT_HTTPS' => 'on'
+    'REDIRECT_SSL_TLS_SNI' => 'demo.hikinginspire.com'
+    'REDIRECT_STATUS' => '200'
+    'HTTPS' => 'on'
+    'SSL_TLS_SNI' => 'demo.hikinginspire.com'
+    'HTTP_HOST' => 'demo.hikinginspire.com'
+    'HTTP_CONNECTION' => 'keep-alive'
+    'HTTP_ACCEPT' => '*/*'
+    'HTTP_ACCESS_CONTROL_REQUEST_METHOD' => 'POST'
+    'HTTP_ACCESS_CONTROL_REQUEST_HEADERS' => 'content-type'
+    'HTTP_ORIGIN' => 'https://moonchildlady.github.io'
+    'HTTP_USER_AGENT' => 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36'
+    'HTTP_SEC_FETCH_MODE' => 'cors'
+    'HTTP_SEC_FETCH_SITE' => 'cross-site'
+    'HTTP_SEC_FETCH_DEST' => 'empty'
+    'HTTP_REFERER' => 'https://moonchildlady.github.io/'
+    'HTTP_ACCEPT_ENCODING' => 'gzip, deflate, br'
+    'HTTP_ACCEPT_LANGUAGE' => 'en-US,en;q=0.9'
+    'PATH' => '/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin'
+    'SERVER_SIGNATURE' => '<address>Apache/2.4.18 (Ubuntu) Server at demo.hikinginspire.com Port 443</address>
+'
+    'SERVER_SOFTWARE' => 'Apache/2.4.18 (Ubuntu)'
+    'SERVER_NAME' => 'demo.hikinginspire.com'
+    'SERVER_ADDR' => '219.77.203.225'
+    'SERVER_PORT' => '443'
+    'REMOTE_ADDR' => '142.181.56.13'
+    'DOCUMENT_ROOT' => '/home/demo'
+    'REQUEST_SCHEME' => 'https'
+    'CONTEXT_PREFIX' => ''
+    'CONTEXT_DOCUMENT_ROOT' => '/home/demo'
+    'SERVER_ADMIN' => 'info@hikinginspire.com'
+    'SCRIPT_FILENAME' => '/home/demo/proj/supermarket/api/web/index.php'
+    'REMOTE_PORT' => '59906'
+    'REDIRECT_URL' => '/proj/supermarket/api/web/v1/user/signup'
+    'GATEWAY_INTERFACE' => 'CGI/1.1'
+    'SERVER_PROTOCOL' => 'HTTP/1.1'
+    'REQUEST_METHOD' => 'OPTIONS'
+    'QUERY_STRING' => ''
+    'REQUEST_URI' => '/proj/supermarket/api/v1/user/signup'
+    'SCRIPT_NAME' => '/proj/supermarket/api/web/index.php'
+    'PHP_SELF' => '/proj/supermarket/api/web/index.php'
+    'REQUEST_TIME_FLOAT' => 1674271621.2275
+    'REQUEST_TIME' => 1674271621
+]

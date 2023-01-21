@@ -28,6 +28,14 @@ class CategoryController extends ActiveController
             'class' => HttpBearerAuth::className(),  
 			'except'=>['index','view','get-all'],
         ];
+        $behaviors['corsFilter'] = [
+			'class' => '\yii\filters\Cors',
+			'cors' => [
+				'Origin' => ['*'],
+				'Access-Control-Request-Method' => ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'HEAD', 'OPTIONS'],
+				'Access-Control-Request-Headers' => ['*'],
+			],
+		];
 		//$behaviors['authenticator']['except'] = ['index'];		
         return $behaviors;
     }
